@@ -8,7 +8,7 @@ except AttributeError:
     from setuptools import find_packages, setup
 
 NAME = 'OASYS1-srwlib'
-VERSION = '1.0.3'
+VERSION = '1.0.4'
 ISRELEASED = False
 
 DESCRIPTION = 'PRECOMPILED SRW LIBRARY FOR OASYS (DARWIN AND LINUX)'
@@ -93,7 +93,7 @@ if __name__ == '__main__':
         is_install = False
 
         for arg in sys.argv:
-            if arg == 'install': is_install = True
+            if arg == 'install' or arg == "bdist_wheel": is_install = True
 
         if is_install:
             print("COPYING SRWLIB files")
