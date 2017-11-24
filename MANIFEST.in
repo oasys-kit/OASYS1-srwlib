@@ -1,0 +1,5 @@
+recursive-include lib *
+recursive-include lib/darwin *
+recursive-include lib/linux *
+
+include README.txt
