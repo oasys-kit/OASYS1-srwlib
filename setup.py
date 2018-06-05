@@ -8,7 +8,7 @@ except AttributeError:
     from setuptools import find_packages, setup
 
 NAME = 'OASYS1-srwlib'
-VERSION = '1.0.7'
+VERSION = '1.0.8'
 ISRELEASED = False
 
 DESCRIPTION = 'PRECOMPILED SRW LIBRARY FOR OASYS (DARWIN AND LINUX)'
@@ -88,9 +88,13 @@ if __name__ == '__main__':
               license = LICENSE,
               keywords = KEYWORDS,
               classifiers = CLASSIFIERS,
+              packages = PACKAGES,
+              package_data = PACKAGE_DATA,
               py_modules = PY_MODULES,
               setup_requires = SETUP_REQUIRES,
               install_requires = INSTALL_REQUIRES,
+              entry_points = ENTRY_POINTS,
+              namespace_packages=NAMESPACE_PACAKGES,
               include_package_data = True,
               zip_safe = False,
               )
