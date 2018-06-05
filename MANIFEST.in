@@ -1,5 +1,20 @@
-recursive-include lib *
-recursive-include lib/darwin *
-recursive-include lib/linux *
+recursive-include srwlpy_aux *.py
+recursive-include srwlpy_aux *.so
+recursive-include srwlpy_aux *.pyd
+
+include srwl_bl.py
+include srwl_uti_cryst.py
+include srwl_uti_mag.py
+include srwl_uti_smp.py
+include srwl_uti_src.py
+include srwl_uti_und.py
+include srwlib.py
+include srwlpy_switcher.py
+include uti_io.py
+include uti_math.py
+include uti_parse.py
+include uti_plot.py
+include uti_plot_com.py
+include uti_plot_matplotlib.py
 
 include README.txt

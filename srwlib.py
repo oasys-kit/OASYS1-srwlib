@@ -3,6 +3,7 @@
 #############################################################################
 
 from __future__ import print_function #Python 2.7 compatibility
+import srwlpy_switcher # ADDED BY LUCA REBUFFI
 import srwlpy as srwl
 from array import *
 from math import *
