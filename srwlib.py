@@ -322,7 +322,7 @@ class SRWLMagFldU(SRWLMagFld):
     def allocate(self, _nHarm):
         #self.arHarm = [SRWLMagFldH()]*_nHarm
         arHarmLoc = []
-        for i in range(_nHarm): arHarm.append(SRWLMagFldH())
+        for i in range(_nHarm): self.arHarm.append(SRWLMagFldH())
 
     def set_sin(self, _per=0.02, _len=1, _bx=0, _by=0, _phx=0, _phy=0, _sx=1, _sy=1):
         """Setup basic undulator with sinusoidal magnetic field
