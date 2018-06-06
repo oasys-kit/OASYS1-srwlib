@@ -36,8 +36,20 @@ class Singleton:
     def __instancecheck__(self, inst):
         return isinstance(inst, self._decorated)
 
+import six
+
+def package_dirname(package):
+    """Return the directory path where package is located.
+
+    """
+    if isinstance(package, six.string_types):
+        package = __import__(package, fromlist=[""])
+    filename = package.__file__
+    dirname = os.path.dirname(filename)
+    return dirname
+
+
 import os, sys, shutil, filecmp
-from orangecanvas import resources
 
 @Singleton
 class SRWLibSwitcher(object):
@@ -56,7 +68,7 @@ class SRWLibSwitcher(object):
                 platform = "windows"
                 file     = "srwlpy.pyd"
             try:
-                lib_path = os.path.join(resources.package_dirname("srwlpy_aux"), platform, file)
+                lib_path = os.path.join(package_dirname("srwlpy_aux"), platform, file)
                 srw_path = os.path.join(lib_path.split("srwlpy_aux")[0], file)
 
                 do_copy = True
