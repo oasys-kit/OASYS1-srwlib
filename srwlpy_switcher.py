@@ -49,7 +49,7 @@ def package_dirname(package):
     return dirname
 
 
-import os, sys, shutil, filecmp
+import os, sys, shutil, filecmp, platform as pf
 
 @Singleton
 class SRWLibSwitcher(object):
@@ -62,7 +62,11 @@ class SRWLibSwitcher(object):
                 platform = "darwin"
                 file     = "srwlpy.so"
             elif "linux" in sys.platform:
-                platform = "linux"
+                if "debian" in pf.platform():
+                    platform = os.path.join("linux", "debian")
+                else:
+                    raise NotImplementedError("This distribution of Linux is not supported")
+
                 file     = "srwlpy.so"
             elif "win" in sys.platform:
                 platform = "windows"
