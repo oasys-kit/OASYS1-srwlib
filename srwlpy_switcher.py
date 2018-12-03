@@ -64,6 +64,8 @@ class SRWLibSwitcher(object):
             elif "linux" in sys.platform:
                 if "debian" in pf.platform():
                     platform = os.path.join("linux", "debian")
+                elif "fedora" in pf.platform():
+                    platform = os.path.join("linux", "fedora")
                 else:
                     raise NotImplementedError("This distribution of Linux is not supported")
 
