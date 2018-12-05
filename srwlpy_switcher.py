@@ -59,20 +59,22 @@ class SRWLibSwitcher(object):
     def switch(self):
         if not self.has_switched:
             if "darwin" in sys.platform:
-                platform = "darwin"
                 file     = "srwlpy.so"
+                platform = "darwin"
             elif "linux" in sys.platform:
-                if "debian" in pf.platform():
+                file     = "srwlpy.so"
+                if "debian" in pf.platform(): # miniconda
                     platform = os.path.join("linux", "debian")
+                elif "Ubuntu" in pf.platform():
+                    platform = os.path.join("linux", "ubuntu")
                 elif "fedora" in pf.platform():
                     platform = os.path.join("linux", "fedora")
                 else:
                     raise NotImplementedError("This distribution of Linux is not supported")
-
-                file     = "srwlpy.so"
             elif "win" in sys.platform:
-                platform = "windows"
                 file     = "srwlpy.pyd"
+                platform = "windows"
+
             try:
                 lib_path = os.path.join(package_dirname("srwlpy_aux"), platform, file)
                 srw_path = os.path.join(lib_path.split("srwlpy_aux")[0], file)
