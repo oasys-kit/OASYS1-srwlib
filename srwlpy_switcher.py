@@ -59,10 +59,10 @@ class SRWLibSwitcher(object):
     def switch(self):
         if not self.has_switched:
             if "darwin" in sys.platform:
-                file     = "srwlpy.so"
+                file     = "srwlpy_xianbo.so"
                 platform = "darwin"
             elif "linux" in sys.platform:
-                file     = "srwlpy.so"
+                file     = "srwlpy_xianbo.so"
                 if "debian" in pf.platform(): # miniconda
                     platform = os.path.join("linux", "debian")
                 elif "Ubuntu" in pf.platform():
@@ -83,8 +83,8 @@ class SRWLibSwitcher(object):
                 srw_path = os.path.join(lib_path.split("srwlpy_aux")[0], file)
 
                 do_copy = True
-                if os.path.exists(srw_path) and filecmp.cmp(lib_path, srw_path):
-                    do_copy = False
+                #if os.path.exists(srw_path) and filecmp.cmp(lib_path, srw_path):
+                #    do_copy = False
 
                 if do_copy:
                     shutil.copyfile(lib_path, srw_path)
